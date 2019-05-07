@@ -2,11 +2,10 @@
   "name": "@carforyou/example",
   "version": "1.0.2",
   "description": "Example package",
-  "private": true,
   "scripts": {
     "build": "pack build",
     "dev": "pack watch",
-    "publish": "pack publish"
+    "release": "pack publish"
   },
   "repository": {
     "type": "git",
