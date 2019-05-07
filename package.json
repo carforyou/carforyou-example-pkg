@@ -2,6 +2,7 @@
   "name": "@carforyou/example",
   "version": "1.0.2-0",
   "description": "Example package",
+  "private": true,
   "scripts": {
     "build": "pack build",
     "dev": "pack watch",
