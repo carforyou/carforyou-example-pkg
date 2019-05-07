@@ -7,6 +7,7 @@
     "dev": "pack watch",
     "release": "pack publish"
   },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/autoricardo/example-pkg.git"
