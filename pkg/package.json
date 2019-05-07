@@ -1,0 +1,26 @@
+{
+  "name": "@carforyou/example",
+  "description": "Example package",
+  "version": "1.0.0",
+  "license": "ISC",
+  "files": [
+    "dist-*/",
+    "bin/"
+  ],
+  "esnext": "dist-src/index.js",
+  "pika": true,
+  "sideEffects": false,
+  "homepage": "https://github.com/autoricardo/example-pkg#readme",
+  "bugs": {
+    "url": "https://github.com/autoricardo/example-pkg/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autoricardo/example-pkg.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@pika/pack": "^0.3.7",
+    "@pika/plugin-standard-pkg": "^0.3.16"
+  }
+}

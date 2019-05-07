@@ -1,19 +1,31 @@
 {
   "name": "@carforyou/example",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Example package",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pack build",
+    "dev": "pack watch",
+    "publish": "pack publish"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/autoricardo/example-pkg.git"
   },
-  "author": "",
+  "author": "CAR FOR YOU",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/autoricardo/example-pkg/issues"
   },
-  "homepage": "https://github.com/autoricardo/example-pkg#readme"
+  "homepage": "https://github.com/autoricardo/example-pkg#readme",
+  "devDependencies": {
+    "@pika/pack": "^0.3.7",
+    "@pika/plugin-standard-pkg": "^0.3.16"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ]
+    ]
+  }
 }
