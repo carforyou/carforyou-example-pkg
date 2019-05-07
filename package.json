@@ -1,24 +1,16 @@
 {
   "name": "@carforyou/example",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Example package",
   "scripts": {
     "build": "pack build",
-    "dev": "pack watch",
-    "release": "pack publish"
-  },
-  "publishConfig": {
-    "access": "restricted"
+    "release": "pack publish && git push --tags"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/autoricardo/example-pkg.git"
   },
   "author": "CAR FOR YOU",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/autoricardo/example-pkg/issues"
-  },
   "homepage": "https://github.com/autoricardo/example-pkg#readme",
   "devDependencies": {
     "@pika/pack": "^0.3.7",
