@@ -24,7 +24,7 @@ jobs:
       - checkout
       - restore_cache:
           key: v3-npm-{{ checksum "package-lock.json" }}
-      - run: CYPRESS_INSTALL_BINARY=0 npm ci
+      - run: npm ci
       - run: npm ls
       - save_cache:
           key: v3-npm-{{ checksum "package-lock.json" }}
