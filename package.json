@@ -3,23 +3,49 @@
   "version": "1.0.5",
   "description": "Example package",
   "scripts": {
-    "build": "pack build",
-    "release": "pack publish && git push --tags"
+    "version": "npm run build",
+    "build": "pika build",
+    "release": "np --any-branch --contents pkg/",
+    "lint": "tslint --project tsconfig.lint.json",
+    "format": "tslint --project tsconfig.lint.json --fix",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "jest",
+    "test:unit:debug": "node --inspect-brk --inspect=127.0.0.1:9229 ./node_modules/jest/bin/jest.js --runInBand"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/autoricardo/example-pkg.git"
+    "url": "git+https://github.com/autoricardo/carforyou-example-pkg.git"
   },
   "author": "CAR FOR YOU",
+  "license": "MIT",
   "homepage": "https://github.com/autoricardo/example-pkg#readme",
   "devDependencies": {
-    "@pika/pack": "^0.3.7",
-    "@pika/plugin-standard-pkg": "^0.3.16"
+    "@carforyou/tslint-rules": "^1.0.0",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.6.1",
+    "@pika/plugin-build-web": "^0.6.1",
+    "@pika/plugin-ts-standard-pkg": "^0.6.1",
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "np": "5.0.3",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
   },
   "@pika/pack": {
     "pipeline": [
       [
-        "@pika/plugin-standard-pkg"
+        "@pika/plugin-ts-standard-pkg",
+        {
+          "tsconfig": "tsconfig.pika.json"
+        }
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-node"
       ]
     ]
   }
