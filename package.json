@@ -5,7 +5,9 @@
   "scripts": {
     "version": "npm run build",
     "build": "pika build",
-    "release": "np --any-branch --contents pkg/"
+    "release": "np --any-branch --contents pkg/",
+    "lint": "tslint --project tsconfig.lint.json",
+    "format": "tslint --project tsconfig.lint.json --fix"
   },
   "repository": {
     "type": "git",
@@ -15,11 +17,14 @@
   "license": "MIT",
   "homepage": "https://github.com/autoricardo/example-pkg#readme",
   "devDependencies": {
+    "@carforyou/tslint-rules": "^1.0.0",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.6.1",
     "@pika/plugin-build-web": "^0.6.1",
     "@pika/plugin-ts-standard-pkg": "^0.6.1",
     "np": "5.0.3",
+    "prettier": "^1.18.2",
+    "tslint": "^5.20.0",
     "typescript": "^3.6.3"
   },
   "@pika/pack": {
