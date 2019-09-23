@@ -12,6 +12,7 @@
     "url": "git+https://github.com/autoricardo/carforyou-example-pkg.git"
   },
   "author": "CAR FOR YOU",
+  "license": "MIT",
   "homepage": "https://github.com/autoricardo/example-pkg#readme",
   "devDependencies": {
     "@pika/pack": "^0.5.0",
