@@ -23,3 +23,9 @@ npm link ../carforyou-example-pkg/pkg
 ```
 npm run release
 ```
+
+## Circle CI
+
+You will need to enable the repository in circle CI ui to be able to build it.
+
+For slack notifications to work you will need to provide the token in circle settings.
