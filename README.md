@@ -20,9 +20,7 @@ npm link ../carforyou-example-pkg/pkg
 ```
 
 ## Release a new version
-```
-npm run release
-```
+This package is released on CI automatically with (Semantic Release)[https://github.com/semantic-release/semantic-release]. Your PR title / squash commit message must follow the (Conventional Commits Format)[https://www.conventionalcommits.org].
 
 ## Circle CI
 
