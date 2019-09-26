@@ -1,11 +1,9 @@
 {
   "name": "@carforyou/example",
-  "version": "1.0.5",
+  "version": "0.0.0-handled-by-semantic-release",
   "description": "Example package",
   "scripts": {
-    "version": "npm run build",
     "build": "pika build",
-    "release": "np --any-branch --contents pkg/",
     "lint": "tslint --project tsconfig.lint.json",
     "format": "tslint --project tsconfig.lint.json --fix",
     "typecheck": "tsc --noEmit",
@@ -27,7 +25,6 @@
     "@pika/plugin-ts-standard-pkg": "^0.6.1",
     "@types/jest": "^24.0.18",
     "jest": "^24.9.0",
-    "np": "5.0.3",
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
     "tslint": "^5.20.0",
@@ -48,5 +45,8 @@
         "@pika/plugin-build-node"
       ]
     ]
+  },
+  "release": {
+    "debug": true
   }
 }
