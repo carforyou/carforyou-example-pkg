@@ -47,7 +47,6 @@
     ]
   },
   "release": {
-    "dryRun": true,
     "debug": true
   }
 }
