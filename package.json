@@ -48,7 +48,6 @@
   },
   "release": {
     "dryRun": true,
-    "debug": true,
-    "branch": "semantic-release"
+    "debug": true
   }
 }
