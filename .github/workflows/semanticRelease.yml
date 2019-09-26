@@ -17,7 +17,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        args:
-          branch: semantic-release # todo: tmp
+        inputs:
+          branch: "semantic-release" # todo: tmp
+
 
       - run: echo ${{ steps.semanticRelease.outputs.release-version }}
