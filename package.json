@@ -48,5 +48,9 @@
         "@pika/plugin-build-node"
       ]
     ]
+  },
+  "release": {
+    "dryRun": true,
+    "debug": true
   }
 }
