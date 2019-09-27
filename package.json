@@ -46,7 +46,6 @@
       ]
     ]
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "release": {
     "debug": true
   }
