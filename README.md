@@ -24,6 +24,8 @@ npm link ../carforyou-example-pkg/pkg
 npm run release
 ```
 
+## Add two commits
+
 ## Circle CI
 
 You will need to enable the repository in circle CI ui to be able to build it.
