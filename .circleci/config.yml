@@ -54,7 +54,6 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npm run build:ci
-      -
       - notify_slack_failure
 
   typecheck:
@@ -118,8 +117,9 @@ workflows:
             - unit
             - lint
             - typecheck
-          branches:
-            only:
-              - CAR-3079-semantic-release
+          filters:
+            branches:
+              only:
+                - CAR-3079-semantic-release
 
 
