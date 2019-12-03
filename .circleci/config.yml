@@ -10,6 +10,9 @@ commands:
               curl -X POST -H 'Content-type: application/json' --data "{\"text\":\":boom: ${CIRCLE_JOB} failed: ${CIRCLE_BUILD_URL}\"}" https://hooks.slack.com/services/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
             fi
           when: on_fail
+  build_pkg:
+    steps:
+      - run: npm run build
 
 docker: &DOCKER_NODE
   docker:
@@ -53,7 +56,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npm run build:ci
+      - run: npm run lint
       - notify_slack_failure
 
   typecheck:
@@ -72,34 +75,18 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npm run build:ci
+      - build_pkg
 
   release:
     <<: *DOCKER_NODE
     steps:
       - attach_workspace:
           at: ~/
-      - run:
-          # set it to a dry run for now
-          command: npx semantic-release -d
+      - build_pkg
+      - run: npx semantic-release -d
 
 workflows:
   version: 2
-  test:
-    jobs:
-      - install
-
-      - unit:
-          requires:
-            - install
-
-      - lint:
-          requires:
-            - install
-
-      - typecheck:
-          requires:
-            - install
   test_and_release:
     jobs:
       - install
@@ -117,12 +104,11 @@ workflows:
             - unit
             - lint
             - typecheck
+      - release:
+          requires:
+            - build
           filters:
             branches:
               only:
                 - CAR-3079-semantic-release
-      - release:
-          requires:
-            - build
-
 
