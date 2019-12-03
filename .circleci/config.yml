@@ -53,9 +53,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run:
-          command: npm run lint
-          no_output_timeout: 3m
+      - run: npm run build:ci
+      -
       - notify_slack_failure
 
   typecheck:
@@ -68,6 +67,22 @@ jobs:
           command: npm run typecheck
           no_output_timeout: 1m
       - notify_slack_failure
+
+  build:
+    <<: *DOCKER_NODE
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: npm run build:ci
+
+  release:
+    <<: *DOCKER_NODE
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          # set it to a dry run for now
+          command: npx semantic-release -d
 
 workflows:
   version: 2
@@ -86,3 +101,25 @@ workflows:
       - typecheck:
           requires:
             - install
+  test_and_release:
+    jobs:
+      - install
+      - unit:
+          requires:
+            - install
+      - lint:
+          requires:
+            - install
+      - typecheck:
+          requires:
+            - install
+      - build:
+          requires:
+            - unit
+            - lint
+            - typecheck
+          branches:
+            only:
+              - CAR-3079-semantic-release
+
+

@@ -5,6 +5,7 @@
   "scripts": {
     "version": "npm run build",
     "build": "pika build",
+    "build:ci": "npm run build",
     "release": "np --any-branch --contents pkg/",
     "lint": "tslint --project tsconfig.lint.json",
     "format": "tslint --project tsconfig.lint.json --fix",
@@ -51,6 +52,7 @@
     ]
   },
   "release": {
-    "branches": ["master", "CAR-3079-semantic-release"]
+    "branches": ["master", "CAR-3079-semantic-release"],
+    "branch": "CAR-3079-semantic-release"
   }
 }
