@@ -121,5 +121,8 @@ workflows:
             branches:
               only:
                 - CAR-3079-semantic-release
+      - release:
+          requires:
+            - build
 
 
