@@ -24,9 +24,11 @@ npm link ../carforyou-example-pkg/pkg
 npm run release
 ```
 
-## Add two commits
+## Semantic Versioning
 
+Add two commits
 But squash them together.
+
 
 ## Circle CI
 
