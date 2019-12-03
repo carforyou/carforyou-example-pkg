@@ -49,5 +49,8 @@
         "@pika/plugin-build-node"
       ]
     ]
+  },
+  "release": {
+    "branches": ["master", "CAR-3079-semantic-release"]
   }
 }
