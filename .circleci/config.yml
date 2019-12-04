@@ -12,7 +12,7 @@ commands:
           when: on_fail
   build_pkg:
     steps:
-      - run: npm run build:ci
+      - run: npm run build
 
 docker: &DOCKER_NODE
   docker:
