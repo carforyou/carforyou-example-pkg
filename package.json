@@ -52,7 +52,6 @@
     ]
   },
   "release": {
-    "branch": "CAR-3079-semantic-release",
     "pkgRoot": "pkg"
   }
 }
