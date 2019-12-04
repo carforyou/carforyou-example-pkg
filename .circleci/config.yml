@@ -83,7 +83,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - build_pkg
-      - run: npx semantic-release -d
+      - run: npx semantic-release
 
 workflows:
   version: 2
@@ -110,5 +110,5 @@ workflows:
           filters:
             branches:
               only:
-                - CAR-3079-semantic-release
+                - master
 
