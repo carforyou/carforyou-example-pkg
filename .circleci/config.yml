@@ -76,14 +76,17 @@ jobs:
       - attach_workspace:
           at: ~/
       - build_pkg
+      - persist_to_workspace:
+            root: ~/
+            paths:
+              - project
 
   release:
     <<: *DOCKER_NODE
     steps:
       - attach_workspace:
           at: ~/
-      - build_pkg
-      - run: npx semantic-release
+      - run: npx semantic-release -d
 
 workflows:
   version: 2
@@ -110,5 +113,5 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - CAR-3079-cache-build
 
