@@ -20,9 +20,9 @@ npm link ../carforyou-example-pkg/pkg
 ```
 
 ## Release a new version
-```
-npm run release
-```
+
+Releasing is done using semantic release on the ci after merging into the default branch.
+
 
 ## Circle CI
 
