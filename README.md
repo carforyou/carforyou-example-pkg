@@ -20,14 +20,8 @@ npm link ../carforyou-example-pkg/pkg
 ```
 
 ## Release a new version
-```
-npm run release
-```
 
-## Semantic Versioning
-
-Add two commits
-But squash them together.
+Releasing is done using semantic release on the ci after merging into the default branch.
 
 
 ## Circle CI
