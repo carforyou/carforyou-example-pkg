@@ -26,6 +26,10 @@ npm run release
 
 ## Semantic Versioning
 
+Add two commits
+But squash them together.
+
+
 ## Circle CI
 
 You will need to enable the repository in circle CI ui to be able to build it.
