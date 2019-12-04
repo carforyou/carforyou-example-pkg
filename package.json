@@ -49,6 +49,7 @@
     ]
   },
   "release": {
+    "branch": "CAR-3079-cache-build",
     "pkgRoot": "pkg"
   }
 }
