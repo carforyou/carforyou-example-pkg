@@ -13,11 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/autoricardo/carforyou-example-pkg.git"
+    "url": "git+https://github.com/carforyou/carforyou-example-pkg.git"
   },
   "author": "CAR FOR YOU",
   "license": "MIT",
-  "homepage": "https://github.com/autoricardo/example-pkg#readme",
+  "homepage": "https://github.com/carforyou/example-pkg#readme",
   "devDependencies": {
     "@carforyou/tslint-rules": "^1.0.0",
     "@pika/pack": "^0.5.0",
