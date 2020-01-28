@@ -24,6 +24,7 @@ npm link ../carforyou-example-pkg/pkg
 ## Release a new version
 
 Releasing is done using semantic release on the ci after merging into the default branch.
+On GitHub settings, in Collaborators & teams, you need to add the team Platform-bot with Write access.
 
 
 ## Circle CI
