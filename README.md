@@ -23,7 +23,8 @@ npm link ../carforyou-example-pkg/pkg
 
 ## Release a new version
 
-Releasing is done using semantic release on the ci after merging into the default branch.
+New versions are released on the ci using semantic-release as soon as you merge into master. Please
+make sure your merge commit message adheres to the corresponding conventions.
 
 
 ## Circle CI
