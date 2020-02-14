@@ -73,15 +73,9 @@ jobs:
           at: ~/
       - run: npm run build
       - persist_to_workspace:
-<<<<<<< Updated upstream
-          root: ~/
-          paths:
-            - project
-=======
             root: ~/
             paths:
               - project/pkg
->>>>>>> Stashed changes
       - notify_slack_failure
 
   release:
