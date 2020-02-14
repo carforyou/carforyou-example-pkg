@@ -13,7 +13,7 @@ commands:
 
 docker: &DOCKER_NODE
   docker:
-    - image: circleci/node:10.16
+    - image: circleci/node:10.19
 
 jobs:
   install:
@@ -73,9 +73,15 @@ jobs:
           at: ~/
       - run: npm run build
       - persist_to_workspace:
+<<<<<<< Updated upstream
           root: ~/
           paths:
             - project
+=======
+            root: ~/
+            paths:
+              - project/pkg
+>>>>>>> Stashed changes
       - notify_slack_failure
 
   release:
@@ -85,6 +91,16 @@ jobs:
           at: ~/
       - run: npx semantic-release
       - notify_slack_failure
+
+  pre_release:
+    <<: *DOCKER_NODE
+    steps:
+      - attach_workspace:
+          at: ~/
+      # manually set PR shell variables to empty to build pull request
+      - run: CI_PULL_REQUEST= CIRCLE_PULL_REQUEST= npx semantic-release
+      - notify_slack_failure
+
 
 workflows:
   version: 2
@@ -107,8 +123,18 @@ workflows:
             - typecheck
       - release:
           requires:
+            - lint
+            - unit
             - build
           filters:
             branches:
-              only:
-                - master
+              only: master
+
+    - pre_release:
+        requires:
+          - lint
+          - unit
+          - build
+        filters:
+          branches:
+            ignore: master
