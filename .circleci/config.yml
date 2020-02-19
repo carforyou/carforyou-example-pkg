@@ -123,12 +123,11 @@ workflows:
           filters:
             branches:
               only: master
-
-    - pre_release:
-        requires:
-          - lint
-          - unit
-          - build
-        filters:
-          branches:
-            ignore: master
+      - pre_release:
+          requires:
+            - lint
+            - unit
+            - build
+          filters:
+            branches:
+              ignore: master
