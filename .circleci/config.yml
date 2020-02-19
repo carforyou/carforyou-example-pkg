@@ -1,16 +1,5 @@
 version: 2.1
 
-commands:
-  notify_slack_failure:
-    steps:
-      - run:
-          name: Notify Slack of failure if on master
-          command: |
-            if [ "$CIRCLE_BRANCH" = "master" ]; then
-              curl -X POST -H 'Content-type: application/json' --data "{\"text\":\":boom: ${CIRCLE_JOB} failed: ${CIRCLE_BUILD_URL}\"}" https://hooks.slack.com/services/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
-            fi
-          when: on_fail
-
 docker: &DOCKER_NODE
   docker:
     - image: circleci/node:10.19
@@ -33,7 +22,7 @@ jobs:
           root: ~/
           paths:
             - project
-      - notify_slack_failure
+      - slack/notify-on-failure
 
   unit:
     <<: *DOCKER_NODE
@@ -44,7 +33,7 @@ jobs:
       - run:
           command: npm run test:unit -- --maxWorkers=4
           no_output_timeout: 3m
-      - notify_slack_failure
+      - slack/notify-on-failure
 
   lint:
     <<: *DOCKER_NODE
@@ -53,7 +42,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npm run lint
-      - notify_slack_failure
+      - slack/notify-on-failure
 
   typecheck:
     <<: *DOCKER_NODE
@@ -64,7 +53,7 @@ jobs:
       - run:
           command: npm run typecheck
           no_output_timeout: 1m
-      - notify_slack_failure
+        - slack/notify-on-failure
 
   build:
     <<: *DOCKER_NODE
@@ -76,7 +65,7 @@ jobs:
             root: ~/
             paths:
               - project/pkg
-      - notify_slack_failure
+      - slack/notify-on-failure
 
   release:
     <<: *DOCKER_NODE
@@ -84,7 +73,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npx semantic-release
-      - notify_slack_failure
+      - slack/notify-on-failure
 
   pre_release:
     <<: *DOCKER_NODE
@@ -93,7 +82,7 @@ jobs:
           at: ~/
       # manually set PR shell variables to empty to build pull request
       - run: CI_PULL_REQUEST= CIRCLE_PULL_REQUEST= npx semantic-release
-      - notify_slack_failure
+      - slack/notify-on-failure
 
 
 workflows:
