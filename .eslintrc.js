@@ -3,5 +3,5 @@ module.exports = {
   // if you're developing react package instead use:
   // extends: ["@carforyou/eslint-config/react"],
   // if you're working on nextjs app instead use:
-  // extends: ["@carforyou/eslint-config/react"],
+  // extends: ["@carforyou/eslint-config/next"],
 }
