@@ -80,7 +80,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npx semantic-release
+      - run: npx semantic-release@17
       - slack/notify-on-failure:
           only_for_branches: master
 
@@ -90,7 +90,7 @@ jobs:
       - attach_workspace:
           at: ~/
       # manually set PR shell variables to empty to build pull request
-      - run: CI_PULL_REQUEST= CIRCLE_PULL_REQUEST= npx semantic-release
+      - run: CI_PULL_REQUEST= CIRCLE_PULL_REQUEST= npx semantic-release@17
       - slack/notify-on-failure:
           only_for_branches: master
 
